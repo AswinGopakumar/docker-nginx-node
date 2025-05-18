@@ -1,9 +1,13 @@
 
 ## Overview
 
-- **Node.js App:** A simple web server that listens on port 3000.
-- **Nginx:** Acts as a reverse proxy, forwarding HTTP traffic from port 80 to the Node.js app.
-- **Docker Compose:** Used to run both services in isolated containers.
+- Build a Node.js backend
+    
+- Use Nginx as a reverse proxy with HTTPS
+    
+- Generate a self-signed SSL certificate
+    
+- Run everything inside Docker using Docker Compose
 ## Concepts 
 
 - **Reverse proxy:**  
@@ -20,10 +24,22 @@
 ## Setup 
 
 - Clone the repository: 
-	```
+```
 	git clone git@github.com:AswinGopakumar/docker-nginx-node.git && cd ./docker-nginx-node/
-	```
+```
+
+- Create a self signed SSL certificate in `./docker-nginx-node/nginx/`
+```
+mkdir -p self-signed
+
+openssl req -x509 -nodes -days 365 \
+  -newkey rsa:2048 \
+  -keyout self-signed/server.key \
+  -out self-signed/server.crt \
+  -subj "/CN=localhost"
+```
 - Run the app:
-	```
+```
 	docker compose up
-	```
+```
+- Go to `https://localhost` to see the expected output
