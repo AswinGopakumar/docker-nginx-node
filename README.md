@@ -20,6 +20,10 @@
 ## Setup 
 
 - Clone the repository: 
-	`git clone git@github.com:AswinGopakumar/docker-nginx-node.git && cd ./docker-nginx-node/`
+	```
+	git clone git@github.com:AswinGopakumar/docker-nginx-node.git && cd ./docker-nginx-node/
+	```
 - Run the app:
-	`docker compose up`
+	```
+	docker compose up
+	```
